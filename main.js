@@ -52,7 +52,7 @@ function cyrb(s){var a=0xdeadbeef,b=0x41c6ce57;for(var i=0,c;i<s.length;i++){c=s
 
 /* ---- collect photo spaces ---- */
 document.querySelectorAll(".ph[data-img]").forEach(function(el){
- var pg=(el.closest(".page")||{id:"p-index"}).id.replace("p-",""),k=pg+"-"+el.getAttribute("data-img");
+ var pg=(el.closest(".page")||{id:"p-index"}).id.replace("p-",""),k=el.getAttribute("data-x")?"x-"+el.getAttribute("data-x"):pg+"-"+el.getAttribute("data-img");
  if(seen[k]){seen[k]++;k+="-"+seen[k]}else seen[k]=1;
  el.setAttribute("data-slot",k);el.setAttribute("data-page",pg);
  var sp=el.querySelector("span");el.setAttribute("data-def",sp&&sp.lastChild?sp.lastChild.textContent:"");
